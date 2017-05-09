@@ -1,4 +1,4 @@
-package com.javaniu.domain;
+package com.fkb.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

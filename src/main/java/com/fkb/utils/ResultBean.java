@@ -1,12 +1,14 @@
-package com.javaniu.utils;
+package com.fkb.utils;
 
 import java.util.List;
+
+import com.fkb.domain.Box;
 
 public class ResultBean {
 	
 	private String status ;
 	private String msg;
-	private List<Object> data;
+	private List<Box> data;
 	public String getStatus() {
 		return status;
 	}
@@ -19,10 +21,10 @@ public class ResultBean {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
-	public List<Object> getData() {
+	public List<Box> getData() {
 		return data;
 	}
-	public void setData(List<Object> data) {
+	public void setData(List<Box> data) {
 		this.data = data;
 	}
 	

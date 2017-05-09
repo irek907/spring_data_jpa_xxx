@@ -64,7 +64,7 @@
 	<!-- Declare a JPA entityManagerFactory -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="packagesToScan" value="com.javaniu" />
+		<property name="packagesToScan" value="com.fkb" />
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
@@ -80,6 +80,6 @@
 	</bean>
 
 	<!-- Where to find repositories -->
-	<jpa:repositories base-package="com.javaniu.repository" />
+	<jpa:repositories base-package="com.fkb.repository" />
 
 </beans>
