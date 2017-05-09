@@ -30,11 +30,11 @@
 
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
-		<url-pattern>*.htm</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
-		<url-pattern>*.htm</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
 
 
