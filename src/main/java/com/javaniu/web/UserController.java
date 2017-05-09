@@ -35,7 +35,7 @@ public class UserController {
 		List<User> users = repository.findByUserName(userName);
 		ResultBean rBean = new ResultBean();
 		if(users!=null){
-			if(password.equals(users.get(0))){
+			if(password.equals(users.get(0).getPassword())){
 				rBean.setMsg("ok");
 				rBean.setStatus("0");
 			}else{
