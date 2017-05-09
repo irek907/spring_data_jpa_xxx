@@ -30,11 +30,11 @@ public class UserController {
 	}
 	@RequestMapping(value = { "login" })
 	public @ResponseBody
-	JSONObject login(@Param("username")String userName,@Param("password")String password) {
+	JSONObject login(@Param("userName")String userName,@Param("password")String password) {
 		JSONObject json = new JSONObject();
 		List<User> users = repository.findByUserName(userName);
 		ResultBean rBean = new ResultBean();
-		if(users!=null){
+		if(users.size()!=0){
 			if(password.equals(users.get(0).getPassword())){
 				rBean.setMsg("ok");
 				rBean.setStatus("0");
