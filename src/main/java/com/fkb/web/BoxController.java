@@ -35,13 +35,44 @@ public class BoxController {
 		box.setOpen(cmd);
 		Box bx = repository.save(box);
 		ResultBean rBean = new ResultBean();
+		rBean.setType("2");
 		JSONObject json = new JSONObject();
 		if(bx!=null){
 			rBean.setStatus("0");
-			rBean.setMsg("开锁成功！");
+			rBean.setMsg("1".equals(cmd)?"关锁成功！":"开锁成功！");
 		}else{
 			rBean.setStatus("1");
 			rBean.setMsg("开锁失败！");
+		}
+		json.put("data", rBean);
+		return json;
+	}
+
+	@RequestMapping(value = {"create"})
+	public @ResponseBody
+	JSONObject create(String sn,String address,String time,String temperature,String humidity,String open){
+		
+		Box b = new Box();
+		
+		b.setSn(sn);
+		b.setAddress(address);
+		b.setTime(time);
+		b.setTemperature(temperature);
+		b.setHumidity(humidity);
+		b.setOpen("0");
+		
+		Box bx  = repository.save(b);
+		
+		
+		ResultBean rBean = new ResultBean();
+		rBean.setType("3");
+		JSONObject json = new JSONObject();
+		if(bx!=null){
+			rBean.setStatus("0");
+			rBean.setMsg("插入成功！");
+		}else{
+			rBean.setStatus("1");
+			rBean.setMsg("插入失败！");
 		}
 		json.put("data", rBean);
 		return json;
@@ -52,15 +83,20 @@ public class BoxController {
 	JSONObject searchbox(String sn){
 		Box box = repository.findBySn(sn);
 		ResultBean rBean = new ResultBean();
+		rBean.setType("1");
 		JSONObject json = new JSONObject();
 		if(box!=null){
 			List<Box> lb = new ArrayList<Box>();
 			lb.add(box);
 			rBean.setData(lb);
 			rBean.setStatus("0");
-			rBean.setMsg("开锁成功！");
+			rBean.setMsg("查询成功！");
 		}else{
 			rBean.setStatus("1");
+			List<Box> lb = new ArrayList<Box>();
+			Box box2 = new Box();
+			lb.add(box2);
+			rBean.setData(lb);
 			rBean.setMsg("改箱子不存在！");
 		}
 		json.put("data", rBean);
